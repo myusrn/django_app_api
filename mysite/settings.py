@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY enabled using export SECRET_KEY=<value> or configuration plan secrets manager in case of PaaS and IaaS deployments
 import os
 try:
-    SECRET_KEY = os.environ["SECRET_KEY"]  
+   SECRET_KEY = os.environ["SECRET_KEY"]  
 #except KeyError as ke:
 #    print(ke)
 except KeyError:
@@ -49,7 +49,8 @@ INSTALLED_APPS = [
 
     'myapp.apps.MyappConfig', # enable web app
     
-    'rest_framework', 'base', # enable web api
+    'rest_framework', # enable rest api framework
+    'myapi.apps.MyapiConfig', # enable web api
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware', # enables static files in azure app service deployment
+    'whitenoise.middleware.WhiteNoiseMiddleware', # enable static files support, see STATICFILES_STORAGE and STATIC_ROOT settings below that modify STATIC_URL setting behavior
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -133,7 +134,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'mystaticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

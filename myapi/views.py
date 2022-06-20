@@ -1,9 +1,10 @@
+#from django.shortcuts import render
 from rest_framework.decorators import api_view
 #from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework import status
 #from rest_framework.exceptions import MethodNotAllowed
-from base.models import Item
+from .models import Item
 from .serializers import ItemSerializer
 
 @api_view(['GET']) # read

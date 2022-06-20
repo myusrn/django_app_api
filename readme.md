@@ -17,17 +17,14 @@ pushd mysite
 
 **commands to create web app**  
 py manage.py startapp myapp  
-<make models>
-py manage.py makemigrations  
-py manage.py migrate  
+&lt;define classes in models.py&gt;
 
 **commands to create web api**
 py manage.py startapp myapi  
-
-**commands to create base**
-py manage.py startapp base  
 &lt;define classes in models.py&gt;
-py manage.py makemigrations  # only required in update cases
+
+**create or update models persistence support**
+py manage.py makemigrations # only required in update cases
 py manage.py migrate  
 
 **commands to run site**  

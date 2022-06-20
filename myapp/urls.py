@@ -7,5 +7,4 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('book/<int:book_id>', views.book_by_id, name='book_by_id' ),
     path('secrets', views.secrets, name='secrets'),
-    #path('staticfiles', views.???, name='staticfiles' ),
 ]
