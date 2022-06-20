@@ -53,15 +53,16 @@ create new python 3.9/3.8 app service
     
 **references**  
 \- [creating simple website with django framework](https://youtu.be/ZsJRXS_vrw0) Apr 15, 2020  
+\- [django series by corey schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) Feb 18, 2019  
 \- [django rest framework overview](https://youtu.be/cJveiktaOSQ) Jan 25, 2022  
-\- [django rest framework from scratch by caleb curry](https://youtube.com/results?search_query=django+rest+framework+crud) -> [Django REST Framework - Build an API from Scratch](https://youtu.be/i5JykvxUk_A) Feb 21, 2022  
+\- [django rest framework crud](https://youtube.com/results?search_query=django+rest+framework+crud) -> [Build a Django API from Scratch](https://youtu.be/i5JykvxUk_A) Feb 21, 2022  
 \- [debug a django app in vscode](https://youtu.be/spmFjhQIKOo) Dec 18, 2021  
 \- [deploy django app to azure](https://youtu.be/D6Wyk9q2JM0) Jul 15, 2021  
 \- [dokerize a django app](https://youtu.be/BoM-7VMdo7s) Oct 21, 2021  
 \- [dockerize django in 5 minutes](https://youtu.be/8c14GBrbglw) Jul 27, 2021  
   
-\- [django series by corey schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) Feb 18, 2019  
+\- for vscode problems with signature '(module) &lt;module&gt; \n Import "django.&lt;module&gt;" could not be resolved from source Pylance(reportMissingModuleSource)' use f1 or ctrl+shift+p | python select interpreter | &lt;select venv with django packages installed&gt;  
 \- [set django root url redirect](https://stackoverflow.com/questions/48504649/django-url-patterns-redirect-from-root-to-other-url) Jan 29, 2018  
 \- [set django root/super user credentials](https://stackoverflow.com/questions/65240677/django-admin-interface-how-to-change-user-password) Mar 12, 2021  
-\- [azure django admin csrf verification failed. request aborted.](https://youtube.com/results?search_query=azure+django+admin+csrf+verification+failed.+request+aborted.) -> [Django Admin - CSRF verification failed. Request aborted - Django](https://youtu.be/ceMmHSeYILI) May 16, 2022 ->  
-&ensp;&nbsp;enable app service plan setup to expose http tcp/80 that redirects to https tcp/443  
+\- [azure django admin csrf verification failed. request aborted.](https://youtube.com/results?search_query=azure+django+admin+csrf+verification+failed.+request+aborted.) -> [Django Admin - CSRF verification failed. Request aborted - Django](https://youtu.be/ceMmHSeYILI) May 16, 2022 -> enable app service plan setup to expose http tcp/80 that redirects to https tcp/443  
+\- [Django Secret Key accessible on GitHub](https://dashboard.gitguardian.com/core-alerting/incident-resolution/dafcbbc2-9364-4638-961d-a497bb76f5b5/) -> change mysite/settings.py SECRET_KEY to read value from dev workstation environment variable, e.g. export SECRET_KEY='django-insecure-+t+)ge1hkpezhwz_v%(-vp!fyvnw5dxmvgi=w2qzl*da3%y*rj' and clear using unset SECRET_KEY, or configuration plane secrets manager in the case of PaaS and IaaS deployments. for more see https://blog.gitguardian.com/secrets-api-management/ -> https://res.cloudinary.com/da8kiytlc/image/upload/v1592031041/Cheatsheets/secrets_cheatsheet_bedizg.pdf + https://docs.gitguardian.com/secrets-detection/detectors/specifics/django_secret_key  
