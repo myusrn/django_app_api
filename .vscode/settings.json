@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/58e11fa4-0a85-4b63-8f28-a3ae2d04f47c/microsoft.web/sites/subscriptions/58e11fa4-0a85-4b63-8f28-a3ae2d04f47c/resourceGroups/Web-App-Api-Experiments/providers/Microsoft.Web/sites/ob1-django-app-api",
+    "appService.deploySubpath": "."
+}
