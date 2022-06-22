@@ -20,7 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY enabled using .vscode/dev.env or prod.env or export SECRET_KEY=<value> or configuration plan secrets manager in case of PaaS and IaaS deployments
+# SECRET_KEY enabled using .vscode/dev.env or prod.env or export SECRET_KEY=<value> or configuration plan secrets manager in case of PaaS and IaaS deployments
+# to remove history of checkins containing secret_key see https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
+# and https://github.com/newren/git-filter-repo#simple-example-with-comparisons
 import os
 try:
    SECRET_KEY = os.environ["SECRET_KEY"]  
