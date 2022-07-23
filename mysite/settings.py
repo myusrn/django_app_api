@@ -23,16 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY enabled using .vscode/env.dev or env.prd or export SECRET_KEY=<value> or configuration plan secrets manager in case of PaaS and IaaS deployments
 # to remove history of checkins containing secret_key see https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
 # and https://github.com/newren/git-filter-repo#simple-example-with-comparisons
-#import os
-#try:
+# import os
+# try:
 #    SECRET_KEY = os.environ['SECRET_KEY']  
-#except KeyError as ke:
+# except KeyError as ke:
 #    print('%s not found in environment' % ke)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = os.environ['DEBUG']
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = os.environ['DEBUG']
 
-#ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
+# ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
 import environ; # if using the django-environ package support for pulling in environment variables
 env = environ.Env( DEBUG=(bool, False), DOESNT_EXIST_TEST=(str, 'foobar') ) # optionally declare defaults for environment variables that may not be present
