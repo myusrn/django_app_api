@@ -20,24 +20,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY enabled using .vscode/dev.env or prod.env or export SECRET_KEY=<value> or configuration plan secrets manager in case of PaaS and IaaS deployments
+# SECRET_KEY enabled using .vscode/env.dev or env.prd or export SECRET_KEY=<value> or configuration plan secrets manager in case of PaaS and IaaS deployments
 # to remove history of checkins containing secret_key see https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
 # and https://github.com/newren/git-filter-repo#simple-example-with-comparisons
-import os
-try:
-   SECRET_KEY = os.environ["SECRET_KEY"]  
+#import os
+#try:
+#    SECRET_KEY = os.environ['SECRET_KEY']  
 #except KeyError as ke:
-#    print(ke)
-except KeyError:
-    print('SECRET_KEY not found in environment')
+#    print('%s not found in environment' % ke)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # deployed locally, e.g. debugging
-#DEBUG = False # deployed to production, e.g. azure app service
+#DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = [] # deployed locally, e.g. debugging
-#ALLOWED_HOSTS = ['ob1-django-app-api.azurewebsites.net'] # deployed to production, e.g. azure app service
+#ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
+import environ; # if using the django-environ package support for pulling in environment variables
+env = environ.Env( DEBUG=(bool, False), DOESNT_EXIST_TEST=(str, 'foobar') ) # optionally declare defaults for environment variables that may not be present
+#environ.Env.read_env() # reading the .env file contained settings
+SECRET_KEY = env('SECRET_KEY'); DEBUG = env('DEBUG'); ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+DOESNT_EXIST_TEST = env('DOESNT_EXIST_TEST') # doesn't provide try/except abstraction only constructor support for declaring defaults
 
 # Application definition
 

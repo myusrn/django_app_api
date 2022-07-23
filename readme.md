@@ -57,6 +57,8 @@ create new python 3.9/3.8 app service
 \- [deploy django app to azure](https://youtu.be/D6Wyk9q2JM0) Jul 15, 2021  
 \- [dokerize a django app](https://youtu.be/BoM-7VMdo7s) Oct 21, 2021  
 \- [dockerize django in 5 minutes](https://youtu.be/8c14GBrbglw) Jul 27, 2021  
+\- [django with docker best practices](https://youtu.be/4wdNx2j1j-w) Jul 14, 2021 to use django-environ package .env file for secrets instead of .vscode/env.dev and env.prd
+
   
 \- for vscode problems with signature '(module) &lt;module&gt; \n Import "django.&lt;module&gt;" could not be resolved from source Pylance(reportMissingModuleSource)' use f1 or ctrl+shift+p | python select interpreter | &lt;select venv with django packages installed&gt;  
 \- [set django root url redirect](https://stackoverflow.com/questions/48504649/django-url-patterns-redirect-from-root-to-other-url) Jan 29, 2018  
