@@ -1,11 +1,13 @@
 
-# docker compose up --build
+# docker compose up [ --build --detach ]
 
-version: '3.9'
+# https://docs.docker.com/compose/compose-file/compose-versioning/
+version: '3.8'
 
 services:
   django:
-    image: docker-registry.qualcomm.com/repository/obrien/django-docker:0.0.1
+    image: django-docker:0.0.1
+    #image: docker-registry.qualcomm.com/repository/obrien/django-docker:0.0.1
     #image: docker-registry.qualcomm.com/organization/isrm/django-docker:0.0.1
     # build: .
     # ports: 
