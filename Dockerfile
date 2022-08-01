@@ -14,11 +14,14 @@ COPY ./.vscode ./.vscode
 # ENV DEBUG=TRUE 
 # ENV ALLOWED_HOSTS=*
 # ENV ClientSecret=my-client-secret-dev
-# or docker run --name <container name to assign> --env-file .vscode/.env.dev | .test [ --detach ] <image name> 
-# or docker compose up [ --build --detach ] where docker-compose.yml file has setting env_file:\n\t- .vscode/.env.dev 
+# or 'docker run --name <container name to assign> --env-file .vscode/.env.dev | .test [ --detach ] <image name>'
+# or 'docker compose up ...' where docker-compose.yml file has setting env_file:\n\t- .vscode/.env.dev 
 
 RUN pip install -r requirements.txt
 
+# 'can you publish ports in dockerfile' -> have to use 'docker run -p|--publish <host port>:<container port> ...'
+# or 'docker compose up ...' where docker-compose.yml file has setting ports:\n\t- <host port>:<container port>
+# the following Dockerfile setting is for documentation purposes only
 EXPOSE 8000
 
 # 'docker run vs cmd vs entrypoint' -> https://geeksforgeeks.org/difference-between-run-vs-cmd-vs-entrypoint-docker-commands/
