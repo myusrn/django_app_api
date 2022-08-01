@@ -19,26 +19,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+# define configuration and secret environment variable settings using .env or .vscode/.env.dev | .env.test
+# or deployment environment configuration and secrets management support for injecting values into environment
+# see 'how to use .env file in python' -> e.g. https://twilio.com/blog/environment-variables-python and 
+# https://code.visualstudio.com/docs/python/environments and #_environment-variable-definitions-file
+# also see 'removing sensitive data from a repository' -> e.g.
+# https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
+
+from dotenv import load_dotenv
+load_dotenv() # where default .env load can be overridden by .vscode/launch.js | "envFile": "${workspaceFolder}/.vscode/.env.dev", // | .test
+#load_dotenv('.vscode/.env.dev') # or overridden here in code which doesn't appear to have a python command line switch setting option
+
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY enabled using .vscode/env.dev or env.prd or export SECRET_KEY=<value> or configuration plan secrets manager in case of PaaS and IaaS deployments
-# to remove history of checkins containing secret_key see https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
-# and https://github.com/newren/git-filter-repo#simple-example-with-comparisons
-# import os
+import os
 # try:
-#    SECRET_KEY = os.environ['SECRET_KEY']  
+SECRET_KEY = os.environ['SECRET_KEY']  
 # except KeyError as ke:
 #    print('%s not found in environment' % ke)
 
-# # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ['DEBUG']
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ['DEBUG']
 
-# ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
-import environ; # if using the django-environ package support for pulling in environment variables
-env = environ.Env( DEBUG=(bool, False), DOESNT_EXIST_TEST=(str, 'foobar') ) # optionally declare defaults for environment variables that may not be present
-#environ.Env.read_env() # reading the .env file contained settings
-SECRET_KEY = env('SECRET_KEY'); DEBUG = env('DEBUG'); ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
-DOESNT_EXIST_TEST = env('DOESNT_EXIST_TEST') # doesn't provide try/except abstraction only constructor support for declaring defaults
+DOESNT_EXIST_TEST = os.environ.get('DOESNT_EXIST_TEST', 'default-value') # api with support for declarifing value if not present
 
 # Application definition
 
