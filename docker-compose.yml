@@ -11,8 +11,10 @@ services:
     # image: docker-registry.qualcomm.com/organization/isrm/django-docker:0.0.1    
     build: .
     # the following override image defaults and those set by build ./Dockerfile processing
-    # ports: 
-    #   - "8000:8000"
+    ports: 
+      - "8000:8000"
     env_file:
-      - .env.dev
-    command: tail -f /dev/null
+      - .vscode/.env.dev
+    # use following if you want to attach to container and debug starting django app yourself
+    #command: tail -f /dev/null
+    command: python3 manage.py runserver
