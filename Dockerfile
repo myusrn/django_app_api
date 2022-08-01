@@ -6,8 +6,9 @@ FROM docker-registry.qualcomm.com/library/python:3.8
 WORKDIR /app
 
 COPY . .
+# in cases where you need container deployment vscode debugging enabled
 # COPY ./.vscode/.env.dev ./.env.dev
-COPY ./.vscode/* ./
+COPY ./.vscode ./.vscode
 
 # ENV SECRET_KEY=django-insecure-+t+)ge1hkpezhwz_v%(-vp!fyvnw5dxmvgi=w2qzl*da3%y*rj
 # ENV DEBUG=TRUE 
@@ -18,7 +19,7 @@ COPY ./.vscode/* ./
 
 RUN pip install -r requirements.txt
 
-EXPOSE 80:8000
+EXPOSE 8000
 
 # 'docker run vs cmd vs entrypoint' -> https://geeksforgeeks.org/difference-between-run-vs-cmd-vs-entrypoint-docker-commands/
 
