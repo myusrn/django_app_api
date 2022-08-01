@@ -19,7 +19,11 @@ COPY ./.vscode ./.vscode
 
 RUN pip install -r requirements.txt
 
-# 'can you publish ports in dockerfile' -> have to use 'docker run -p|--publish <host port>:<container port> ...'
+# 'docker expose vs publish' -> e.g. https://www.baeldung.com/ops/docker/expose-vs-publish and 'can you publish ports in dockerfile' -> e.g. https://linuxhandbook.com/docker-expose-port/
+# Exposing a port simply means letting others know on which port the containerized application is going to be listening on, or accepting connections on. This is for communicating with other 
+# containers, not with the outside world.
+# Publishing a port is more like mapping the ports of a container with ports of the host. This way, the container is able to communicate with external systems, the real world, the internet.
+# to publish ports you have to use command line settings 'docker run -p|--publish <host port>:<container port> ...'
 # or 'docker compose up ...' where docker-compose.yml file has setting ports:\n\t- <host port>:<container port>
 # the following Dockerfile setting is for documentation purposes only
 EXPOSE 8000
@@ -29,5 +33,6 @@ EXPOSE 8000
 # possibly required for first runs of a django project in a container, we'll see
 # RUN python manage.py migrate
 
-#CMD python3 manage.py runserver
-CMD tail -f /dev/null
+# use following if you want to attach to container and debug starting django app yourself
+#CMD tail -f /dev/null
+CMD python3 manage.py runserver
