@@ -4,7 +4,7 @@ FROM docker-registry.qualcomm.com/library/python:3.8
 WORKDIR /app
 
 COPY . .
-#COPY . ${APPROOT}
+COPY ./.vscode/.env.dev ./.env.dev
 
 # ENV SECRET_KEY=django-insecure-+t+)ge1hkpezhwz_v%(-vp!fyvnw5dxmvgi=w2qzl*da3%y*rj
 # ENV DEBUG=TRUE 
@@ -18,5 +18,5 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 #CMD ["python3", "manage.py", "runserver" ] 
-#CMD python3 manage.py runserver
-CMD tail -f /dev/null
+CMD python3 manage.py runserver
+#CMD tail -f /dev/null

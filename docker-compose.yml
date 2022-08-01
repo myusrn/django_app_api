@@ -7,11 +7,12 @@ version: '3.8'
 services:
   django:
     image: django-docker:0.0.1
-    #image: docker-registry.qualcomm.com/repository/obrien/django-docker:0.0.1
-    #image: docker-registry.qualcomm.com/organization/isrm/django-docker:0.0.1
-    # build: .
+    # image: docker-registry.qualcomm.com/repository/obrien/django-docker:0.0.1
+    # image: docker-registry.qualcomm.com/organization/isrm/django-docker:0.0.1    
+    build: .
+    # the following override image defaults and those set by build ./Dockerfile processing
     # ports: 
     #   - "8000:8000"
-    # env_file:
-    #   - .vscode/.env.dev
+    env_file:
+      - .env.dev
     # command: tail -f /dev/null
