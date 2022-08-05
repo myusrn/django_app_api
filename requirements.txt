@@ -1,4 +1,5 @@
 django
 djangorestframework
+debugpy
 python-dotenv
 whitenoise
