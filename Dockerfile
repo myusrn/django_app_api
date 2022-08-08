@@ -1,6 +1,5 @@
 # docker build . -t django-docker[:0.0.1] 
 # docker run --name django_app_api-django-latest --env-file .vscode/.env.dev --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env django-docker[:0.0.1]
-# or vscode | view | command pallet [ or ctrl+shift+p or f1 ] | remote-containers: open folder in container... or remote-containers: attach to running container
 
 # FROM python:3.8
 # FROM python:latest
