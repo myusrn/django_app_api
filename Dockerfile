@@ -1,6 +1,6 @@
 # docker build . -t django-docker[:0.0.1] 
-# docker run --name django_app_api-django-latest --env_file .vscode/.env.dev --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env django-docker[:0.0.1]
-# or vscode | run | start debugging [f5] or run and debug [ctrl+shift+d] | <select launch.json option> | start debugging [f5]
+# docker run --name django_app_api-django-latest --env-file .vscode/.env.dev --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env django-docker[:0.0.1]
+# or vscode | view | command pallet [ or ctrl+shift+p or f1 ] | remote-containers: open folder in container... or remote-containers: attach to running container
 
 # FROM python:3.8
 # FROM python:latest
@@ -41,6 +41,6 @@ EXPOSE 8000
 # use following if you want to attach to container and debug starting django app yourself
 #CMD python3 manage.py runserver
 RUN chmod +x ./entrypoint.sh
-ENTRYPOINT [ "./entrypoint" ]
+ENTRYPOINT [ "./entrypoint.sh" ]
 CMD [ "sh", "-c", "tail -f /dev/null" ]
 

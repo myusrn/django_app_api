@@ -17,6 +17,7 @@ services:
       - .vscode/.env.test:/app/.env
     env_file:
       - .vscode/.env.test
-    # use following if you want to attach to container and debug starting django app yourself
-    #command: tail -f /dev/null
-    command: python3 manage.py runserver
+    #command: python3 manage.py runserver
+    command: entrypoint.sh
+    #command: tail -f /dev/null # if you want to attach to container and debug starting django app yourself
+    
