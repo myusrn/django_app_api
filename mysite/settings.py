@@ -41,7 +41,7 @@ DEBUG = os.environ['DEBUG']
 
 ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
-DOESNT_EXIST_TEST = os.environ.get('DOESNT_EXIST_TEST', 'default-value') # api with support for declarifing value if not present
+DOESNT_EXIST_TEST = os.environ.get('DOESNT_EXIST_TEST', 'default-value') # api with support for defining default value if not present
 
 # Application definition
 
