@@ -1,6 +1,6 @@
 
 # docker compose up --build --detach 
-# https://bing.com/search?q=docker+compose+vs+docker-compose
+# https://bing.com/search?q=docker+compose+vs+docker-compose -> "The docker compose (with a space) is a newer project to migrate compose to Go with the rest of the docker project."
 
 # https://docs.docker.com/compose/compose-file/compose-versioning/
 version: '3.8'
