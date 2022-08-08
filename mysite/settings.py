@@ -18,20 +18,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# import debugpy
-# debugpy.listen(5678) # 5678 is the default attach port in the VS Code debug configurations. Unless a host and port are specified, host defaults to 127.0.0.1
-# print("Waiting for debugger attach")
-# debugpy.wait_for_client()
-# debugpy.breakpoint()
-# print('break on this line')
-
 # define configuration and secret environment variable settings using .env or .vscode/.env.dev | .env.test
 # or deployment environment configuration and secrets management support for injecting values into environment
 # see 'how to use .env file in python' -> e.g. https://twilio.com/blog/environment-variables-python and 
 # https://code.visualstudio.com/docs/python/environments and #_environment-variable-definitions-file
 # also see 'removing sensitive data from a repository' -> e.g.
 # https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
-
+    
 from dotenv import load_dotenv
 load_dotenv() # where default .env load can be overridden by .vscode/launch.js | "envFile": "${workspaceFolder}/.vscode/.env.dev", // | .test
 #load_dotenv('.vscode/.env.dev') # or overridden here in code which doesn't appear to have a python command line switch setting option

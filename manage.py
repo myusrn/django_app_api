@@ -17,6 +17,17 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+def enable_debugger_attach():
+    # import debugpy; debugpy.listen(5678); print("Waiting for debugger attach"); debugpy.wait_for_client(); debugpy.breakpoint(); print('break on this line')
+    import debugpy
+    if not debugpy.is_client_connected(): # or not 'debugpy_listener_enabled' in os.environ or not os.environ['debugpy_listener_enabled'] == 'True':
+        debugpy.listen(5678) # 5678 is the default attach port in the VS Code debug configurations. Unless a host and port are specified, host defaults to 127.0.0.1
+        os.environ['debugpy_listener_enabled'] = 'True'
+        print("Waiting for debugger attach")
+        debugpy.wait_for_client()
+        debugpy.breakpoint()
+        print('break on this line')        
 
-if __name__ == '__main__':
+if __name__ == '__main__':    
+    # enable_debugger_attach()
     main()

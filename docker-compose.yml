@@ -13,8 +13,10 @@ services:
     # the following override image defaults and those set by build ./Dockerfile processing
     ports: 
       - "8000:8000"
+    volumes:
+      - .vscode/.env.test:/app/.env
     env_file:
-      - .vscode/.env.dev
+      - .vscode/.env.test
     # use following if you want to attach to container and debug starting django app yourself
     #command: tail -f /dev/null
     command: python3 manage.py runserver

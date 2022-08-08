@@ -1,3 +1,7 @@
+# docker build . -t django-docker[:0.0.1] 
+# docker run --name django_app_api-django-latest --env_file .vscode/.env.dev --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env django-docker[:0.0.1]
+# or vscode | run | start debugging [f5] or run and debug [ctrl+shift+d] | <select launch.json option> | start debugging [f5]
+
 # FROM python:3.8
 # FROM python:latest
 FROM docker-registry.qualcomm.com/library/python:3.8
@@ -6,8 +10,10 @@ FROM docker-registry.qualcomm.com/library/python:3.8
 WORKDIR /app
 
 COPY . .
-# COPY ./.vscode ./.vscode
-# COPY ./.vscode/.env.dev ./.env.dev
+#COPY ./.vscode/.env.dev ./.env
+#RUN rm -rf .vscode
+#RUN cp .vscode/.env.dev .env && rm -rf .vscode
+# or use docker run ... --volume .vscode/.env.dev:/app/.env
 
 # ENV SECRET_KEY=django-insecure-+t+)ge1hkpezhwz_v%(-vp!fyvnw5dxmvgi=w2qzl*da3%y*rj
 # ENV DEBUG=TRUE 
@@ -33,5 +39,8 @@ EXPOSE 8000
 # RUN python manage.py migrate
 
 # use following if you want to attach to container and debug starting django app yourself
-#CMD tail -f /dev/null
-CMD python3 manage.py runserver
+#CMD python3 manage.py runserver
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT [ "./entrypoint" ]
+CMD [ "sh", "-c", "tail -f /dev/null" ]
+
