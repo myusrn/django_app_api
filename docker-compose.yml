@@ -1,5 +1,5 @@
 
-# docker compose up [ --build --detach ]
+# docker compose up --build --detach 
 
 # https://docs.docker.com/compose/compose-file/compose-versioning/
 version: '3.8'
@@ -15,9 +15,10 @@ services:
       - "8000:8000"
     volumes:
       - .vscode/.env.test:/app/.env
-    env_file:
+    env_file: # doesn't appear to work and no --env-file command line switch alternative available 
       - .vscode/.env.test
-    #command: python3 manage.py runserver
+    # see https://bing.com/search?q=docker-compose.yml+env_file+not+working -> ???
+    # command: python3 manage.py runserver
     command: entrypoint.sh
-    #command: tail -f /dev/null # if you want to attach to container and debug starting django app yourself
+    # command: tail -f /dev/null # if you want to attach to container and debug starting django app yourself
     
