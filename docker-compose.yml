@@ -13,11 +13,12 @@ services:
     # the following override image defaults and those set by build ./Dockerfile processing
     ports: 
       - "8000:8000"
-    volumes:
+    volumes: # appears to get applied after /app/.env is applied to container environment settings
       - .vscode/.env.test:/app/.env
+      # see https://bing.com/search?q=docker-compose.yml+volumes+mapping+before+run -> ???
     env_file: # doesn't appear to work and no --env-file command line switch alternative available 
       - .vscode/.env.test
-    # see https://bing.com/search?q=docker-compose.yml+env_file+not+working -> ???
+      # see https://bing.com/search?q=docker-compose.yml+env_file+not+working -> ???
     # command: python3 manage.py runserver
     command: entrypoint.sh
     # command: tail -f /dev/null # if you want to attach to container and debug starting django app yourself
