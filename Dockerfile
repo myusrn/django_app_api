@@ -1,5 +1,6 @@
 # docker build . -t django-docker[:0.0.1] 
-# docker run --name django_app_api-django-latest --env-file .vscode/.env.dev --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env django-docker[:0.0.1]
+# docker run --name django_app_api-django-latest --env-file .vscode/.env.dev --publish 5678:5678 --publish 8000:8000 --detach django-docker[:0.0.1] # doesn't appear to work
+# docker run --name django_app_api-django-latest --publish 5678:5678 --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env django-docker[:0.0.1]
 
 # FROM python:3.8
 # FROM python:latest
@@ -9,10 +10,10 @@ FROM docker-registry.qualcomm.com/library/python:3.8
 WORKDIR /app
 
 COPY . .
-#COPY ./.vscode/.env.dev ./.env
-#RUN rm -rf .vscode
-#RUN cp .vscode/.env.dev .env && rm -rf .vscode
-# or use docker run ... --volume .vscode/.env.dev:/app/.env
+
+# this requires .vscode to be commented out in .dockerignore or use docker run --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env
+# COPY ./.vscode/.env.dev ./.env
+# RUN rm -rf .vscode
 
 # ENV SECRET_KEY=django-insecure-+t+)ge1hkpezhwz_v%(-vp!fyvnw5dxmvgi=w2qzl*da3%y*rj
 # ENV DEBUG=TRUE 
@@ -23,7 +24,7 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-# 'docker expose vs publish' -> e.g. https://www.baeldung.com/ops/docker/expose-vs-publish and 'can you publish ports in dockerfile' -> e.g. https://linuxhandbook.com/docker-expose-port/
+# 'docker expose vs publish' -> e.g. https://baeldung.com/ops/docker/expose-vs-publish and 'can you publish ports in dockerfile' -> e.g. https://linuxhandbook.com/docker-expose-port/
 # Exposing a port simply means letting others know on which port the containerized application is going to be listening on, or accepting connections on. This is for communicating with other 
 # containers, not with the outside world.
 # Publishing a port is more like mapping the ports of a container with ports of the host. This way, the container is able to communicate with external systems, the real world, the internet.
@@ -31,6 +32,7 @@ RUN pip install -r requirements.txt
 # or 'docker compose up ...' where docker-compose.yml file has setting ports:\n\t- <host port>:<container port>
 # the following Dockerfile setting is for documentation purposes only
 EXPOSE 8000
+EXPOSE 5678
 
 # 'docker run vs cmd vs entrypoint' -> https://geeksforgeeks.org/difference-between-run-vs-cmd-vs-entrypoint-docker-commands/
 

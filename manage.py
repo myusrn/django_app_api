@@ -29,5 +29,5 @@ def enable_debugger_attach():
         print('break on this line')        
 
 if __name__ == '__main__':    
-    # enable_debugger_attach()
+    # enable_debugger_attach() # use for localhost debugging, haven't been able to make work against container instance
     main()
