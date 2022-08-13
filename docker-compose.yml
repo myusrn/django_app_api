@@ -15,11 +15,11 @@ services:
     ports: 
       - 5678
       - 8000
-    env_file: # doesn't appear to work and no --env-file command line switch alternative available 
-      # - .vscode/.env.test
-      # https://bing.com/search?q=docker-compose.yml+env_file+not+working
+    # env_file: # doesn't appear to work and no --env-file command line switch alternative available 
+    #   - .vscode/.env.test
+    #   https://bing.com/search?q=docker-compose.yml+env_file+not+working
     volumes: # appears to get applied after /app/.env is applied to container environment settings
-      - .vscode/.env.test:/app/.env
+      - .vscode/.env.dev:/app/.env
       # https://bing.com/search?q=docker-compose.yml+volumes+mapping+before+run
     # command: python3 manage.py runserver
     command: entrypoint.sh
