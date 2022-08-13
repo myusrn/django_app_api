@@ -13,8 +13,8 @@ services:
     build: .
     # the following override image defaults and those set by build ./Dockerfile processing
     ports: 
-      - 5678
-      - 8000
+      - 5678:5678
+      - 8000:8000
     # env_file: # doesn't appear to work and no --env-file command line switch alternative available 
     #   - .vscode/.env.test
     #   https://bing.com/search?q=docker-compose.yml+env_file+not+working
