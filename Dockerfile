@@ -31,8 +31,8 @@ RUN pip install -r requirements.txt
 # to publish ports you have to use command line settings 'docker run -p|--publish <host port>:<container port> ...'
 # or 'docker compose up ...' where docker-compose.yml file has setting ports:\n\t- <host port>:<container port>
 # the following Dockerfile setting is for documentation purposes only
-EXPOSE 8000
 EXPOSE 5678
+EXPOSE 8000
 
 # 'docker run vs cmd vs entrypoint' -> https://geeksforgeeks.org/difference-between-run-vs-cmd-vs-entrypoint-docker-commands/
 
