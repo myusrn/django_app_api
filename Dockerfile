@@ -4,8 +4,11 @@
 
 # docker build . -t docker-registry.qualcomm.com/obrien/django-docker
 # docker run --name django_app_api-django-latest --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env docker-registry.qualcomm.com/obrien/django-docker
-# rancher k8s cluster=sddemo project=sandbox namespace=obrien-django-app-api deployment=obrien-django-app-api ingress-controller=obrien-django-app-api-ingress 
-# hostname=https://obrien-django-app-api.sddemo.oks.drekar.qualcomm.com/
+# docker push docker-registry.qualcomm.com/obrien/django-docker
+# rancher k8s cluster=sddemo project=sandbox namespace=obrien-django-app-api deployment=obrien-django-app-api with image=docker-registry.qualcomm.com/obrien/django-docker:latest
+# ingress-controller=obrien-django-app-api-ingress with hostname=https://obrien-django-app-api.sddemo.oks.drekar.qualcomm.com/
+
+# docker extension | registries | connect | generice docker registry | https://docker-registry.qualcomm.com | username + encrypted password -> Error: Request with GET/HEAD method cannot have a body
 
 # FROM python:3.8
 # FROM python:latest
