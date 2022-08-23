@@ -7,7 +7,7 @@ echo 'apply database migrations'
 python manage.py migrate
 
 echo 'create superuser'
-python manage.py createadminuser
+python manage.py createsuperuser
 
 echo 'start server'
 #python manage.py runserver # (default) expose on all interfaces ??? using port 8000

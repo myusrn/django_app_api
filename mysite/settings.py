@@ -39,7 +39,11 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
+# ALLOWED_HOSTS = map(lambda x: x.strip(), os.environ['ALLOWED_HOSTS'].split(','))
+# ALLOWED_HOSTS = map(str.strip, os.environ['ALLOWED_HOSTS'].split(','))
+# import csv; ALLOWED_HOSTS = csv.reader(os.environ['ALLOWED_HOSTS'])
+# ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].strip(' ').split(',')
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(', ')
 
 DOESNT_EXIST_TEST = os.environ.get('DOESNT_EXIST_TEST', 'default-value') # api with support for defining default value if not present
 
