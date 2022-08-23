@@ -2,6 +2,11 @@
 # docker run --name django_app_api-django-latest --env-file .vscode/.env.dev --publish 5678:5678 --publish 8000:8000 --detach django-docker[:0.0.1] # doesn't appear to work
 # docker run --name django_app_api-django-latest --publish 5678:5678 --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env django-docker[:0.0.1]
 
+# docker build . -t docker-registry.qualcomm.com/obrien/django-docker
+# docker run --name django_app_api-django-latest --publish 8000:8000 --detach --volume ~/repos/django_app_api/.vscode/.env.dev:/app/.env docker-registry.qualcomm.com/obrien/django-docker
+# rancher k8s cluster=sddemo project=sandbox namespace=obrien-django-app-api deployment=obrien-django-app-api ingress-controller=obrien-django-app-api-ingress 
+# hostname=https://obrien-django-app-api.sddemo.oks.drekar.qualcomm.com/
+
 # FROM python:3.8
 # FROM python:latest
 FROM docker-registry.qualcomm.com/library/python:3.8
