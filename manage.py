@@ -17,6 +17,9 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+# this enables listener that waits for debugger to attach before proceeding
+# or if you don't need to attach during startup can enable without a code change using 'python -m debugpy --listen 5678 manage.py runserver' from command line or entrypoint.sh
+# see https://code.visualstudio.com/docs/python/debugging, https://github.com/microsoft/debugpy/wiki/api-reference and https://pypi.org/project/debugpy/
 def enable_debugger_attach():
     # import debugpy; debugpy.listen(5678); print("Waiting for debugger attach"); debugpy.wait_for_client(); debugpy.breakpoint(); print('break on this line')
     import debugpy
