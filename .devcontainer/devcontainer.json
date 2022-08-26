@@ -1,7 +1,7 @@
 {
     "image": "django-docker:latest",
-    // "image": "docker-registry.qualcomm.com/repository/obrien/django-docker:0.0.1",
-    // "image": "docker-registry.qualcomm.com/organization/isrm/django-docker:0.0.1",
+    // "image": "docker-registry.qualcomm.com/user/obrien/:latest",
+    // "image": "docker-registry.qualcomm.com/organization/isrm/django-docker:latest",
     "forwardPorts": [8000],
     "customizations": {
       // Configure properties specific to VS Code.
