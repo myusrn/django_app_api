@@ -125,6 +125,9 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+# Pycharm ide workspace settings
+.idea/workspace.xml
+
 # Pyre type checker
 .pyre/
 

@@ -1,4 +1,23 @@
-.devcontainer
-.git
+# Byte-compiled / optimized / DLL files
+__pycache__
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+env.bak/
+venv.bak/
+
+# Git repo and ignore file
 .gitignore
-.vscode
+.git/
+
+# Pycharm ide settings
+.idea/
+
+# Vscode ide settings
+.devcontainer/
+.vscode/
