@@ -15,8 +15,8 @@ venv.bak/
 .gitignore
 .git/
 
-# Kubernetes hosting configuration yaml
-kc-*.yaml
+# Kubernetes configuration yaml
+kc-*.yml
 
 # Pycharm ide settings
 .idea/

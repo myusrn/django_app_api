@@ -110,8 +110,8 @@ venv/
 env.bak/
 venv.bak/
 
-# Kubernetes hosting configuration yaml
-kc-*.yaml
+# Kubernetes configuration yaml
+kc-*.yml
 
 # Spyder project settings
 .spyderproject
