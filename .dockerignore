@@ -4,16 +4,20 @@ __pycache__
 *$py.class
 
 # Environments
-.env
+# .env
 .venv
 env/
 venv/
 env.bak/
 venv.bak/
 
-# Git repo and ignore file
+# Git ignore file and repo folder
 .gitignore
 .git/
+
+# Docker ignore and build files
+.dockerignore
+Dockerfile
 
 # Kubernetes configuration yaml
 kc-*.yml
