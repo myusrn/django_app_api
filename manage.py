@@ -17,7 +17,7 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-# this enables listener that waits for debugger to attach before proceeding
+# this enables listener that waits for debugger to attach before proceeding, haven't been able to make work yet against container hosted process
 # or if you don't need to attach during startup can enable without a code change using 'python -m debugpy --listen 5678 manage.py runserver' from command line or entrypoint.sh
 # see https://code.visualstudio.com/docs/python/debugging, https://github.com/microsoft/debugpy/wiki/api-reference and https://pypi.org/project/debugpy/
 def enable_debugger_attach():
@@ -29,8 +29,10 @@ def enable_debugger_attach():
         print("Waiting for debugger attach")
         debugpy.wait_for_client()
         debugpy.breakpoint()
-        print('break on this line')        
+        print('break on this line')
 
-if __name__ == '__main__':    
-    # enable_debugger_attach() # use for localhost debugging, haven't been able to make work against container instance
+if __name__ == '__main__':
+    # import sys; sys.path.append("mysite"); import settings
+    # if settings.DEBUG:
+    #     enable_debugger_attach()
     main()
